@@ -1,3 +1,4 @@
+# Price Update April 2020
 LOCKDOWN_WORKDAYS = (60 * 5) / 7
 GA_HINTERLEGUNG_DAYS = 30  # there is a possibility to deposit the GA for 30 in a year (the money will be paid back for this period)
 GA_LOCKDOWN_HINTERLEGUNG_DAYS = 15  # already in 2020
@@ -27,6 +28,7 @@ def calculate_price(distance_in_km: int, price_dict: dict) -> float:
     :param price_dict: dict: 
     :param distance_in_km: int: 
     """
+    # source --> Tarife 601 Chapter 10.1.4 on https://www.allianceswisspass.ch/de/Themen/TarifeVorschriften
     # dict --> key: 'km' ranges; value: 'km'
     steps = {range(1, 9): 4,
              range(9, 31): 2,
@@ -57,6 +59,7 @@ def regular_ticket_price(distance_in_km: int) -> float:
 
     :int distance_in_km:
     """
+    # source --> Tarife 601 Chapter 10.1.3 on https://www.allianceswisspass.ch/de/Themen/TarifeVorschriften    
     price_ticket_per_km = {range(1, 5): 44.51,
                            range(5, 15): 42.30,
                            range(15, 49): 37.24,
@@ -83,7 +86,7 @@ def abo_price_per_month(distance_in_km: int) -> float:
 
     :int distance_in_km:
     """
-    # the given values where found on the Internet
+    # source --> Tarife 650 Chapter 5.1.4 on https://www.allianceswisspass.ch/de/Themen/TarifeVorschriften
     price_abo_per_km = {range(1, 5): 1672,
                         range(5, 15): 679,
                         range(15, 17): 627,
